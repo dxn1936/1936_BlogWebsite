@@ -8,13 +8,16 @@
 		$posts = getPublishedPostsByTopic($topic_id);
 	}
 ?>
-	<title>LifeBlog | Home </title>
+	<title>DxnBlog | Home </title>
 </head>
 <body>
 <div class="container">
 <!-- Navbar -->
 	<?php include( ROOT_PATH . '/includes/navibar.php'); ?>
 <!-- // Navbar -->
+<!-- Messages -->
+	<?php include( ROOT_PATH . '/includes/messages.php'); ?>
+<!-- // Messages -->
 <!-- content -->
 <div class="content">
 	<h2 class="content-title">
@@ -24,6 +27,7 @@
 	<?php foreach ($posts as $post): ?>
 		<div class="post" style="margin-left: 0px;">
 			<img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" class="post_image" alt="">
+			
 			<a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
 				<div class="post_info">
 					<h3><?php echo $post['title'] ?></h3>

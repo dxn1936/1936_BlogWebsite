@@ -1,7 +1,7 @@
 <?php  include('config.php'); ?>
 <?php  include('includes/registration_login.php'); ?>
 <?php  include('includes/head-section.php'); ?>
-	<title>LifeBlog | Sign in </title>
+	<title>DxnBlog | Sign in </title>
 </head>
 <body>
 <div class="container">

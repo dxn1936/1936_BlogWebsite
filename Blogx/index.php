@@ -21,6 +21,7 @@
 		<!-- banner -->
 <?php include( ROOT_PATH . '/includes/banner.php') ?>
 		
+<?php include( ROOT_PATH . '/includes/messages.php'); ?>		
 		<!-- Page content -->
 	<div class="content">
 			<h2 class="content-title">Recent Articles</h2>
@@ -51,6 +52,6 @@
 <?php endforeach ?>
 	</div>
 		<!-- // Page content -->
-
+</div>
 		<!-- footer -->
 <?php include( ROOT_PATH . '/includes/footer.php') ?>

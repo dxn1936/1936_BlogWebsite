@@ -24,7 +24,7 @@ function getPublishedPosts() {
 function getPostTopic($post_id){
 	global $conn;
 	$sql = "SELECT * FROM topics WHERE id=
-			(SELECT topic_id FROM posts_topic WHERE post_id=$post_id) LIMIT 1";
+			(SELECT topic_id FROM post_topic WHERE post_id=$post_id LIMIT 1) LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	return $topic;
@@ -37,7 +37,7 @@ function getPublishedPostsByTopic($topic_id) {
 	global $conn;
 	$sql = "SELECT * FROM posts ps 
 			WHERE ps.id IN 
-			(SELECT pt.post_id FROM posts_topic pt 
+			(SELECT pt.post_id FROM post_topic pt 
 				WHERE pt.topic_id=$topic_id GROUP BY pt.post_id 
 				HAVING COUNT(1) = 1)";
 	$result = mysqli_query($conn, $sql);
@@ -75,10 +75,11 @@ function getPost($slug){
 
 	// fetch query results as associative array.
 	$post = mysqli_fetch_assoc($result);
-	if ($post) {
-		// get the topic to which this post belongs
-		$post['topic'] = getPostTopic($post['id']);
-	}
+	
+	// get the topic to which this post belongs
+	
+	$post['topic'] = getPostTopic($post['id']);
+		
 	return $post;
 }
 /* * * * * * * * * * * *
